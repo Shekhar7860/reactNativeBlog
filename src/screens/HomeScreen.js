@@ -1,10 +1,13 @@
 
-import { View, Text, StyleSheet, TouchableOpacity, Image, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, TouchableHighlight, FlatList } from 'react-native';
 import {  DrawerActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Slideshow from 'react-native-slideshow';
 import React, { Component } from 'react';
+import { InterstitialAdManager } from 'react-native-fbads';
+
 export default class ChannelScreen extends Component {
+  
 
   constructor() {
  
@@ -13,6 +16,44 @@ export default class ChannelScreen extends Component {
     this.state = {
       position: 1,
       interval: null,
+      names: [
+        {
+           id: 0,
+           date: '07 June 2019',
+           text : 'How to Start A Business With 0 Investment',
+           url: 'https://reactnativecode.000webhostapp.com/images/dahlia-red-blossom-bloom-60597.jpeg'
+        },
+        {
+           id: 1,
+           date: '08 June 2019',
+           text : 'How To Prevent Hair From Falling',
+           url: 'https://reactnativecode.000webhostapp.com/images/flower-impala-lily-floral-plant-65653.jpeg'
+        },
+        {
+           id: 2,
+           date: '09 June 2019',
+           text : 'Who Will Win The ICC World Cup 2019',
+           url: 'https://reactnativecode.000webhostapp.com/images/flowers-background-butterflies-beautiful-87452.jpeg'
+        },
+        {
+           id: 3,
+           date: '09 June 2019',
+          text: 'How To Achieve Success In Network Marketing',
+           url: 'https://reactnativecode.000webhostapp.com/images/dahlia-red-blossom-bloom-60597.jpeg'
+        },
+        {
+          id: 4,
+          date: '11 June 2019',
+          text: 'How To Become More Successfull',
+          url: 'https://reactnativecode.000webhostapp.com/images/flower-impala-lily-floral-plant-65653.jpeg'
+       },
+       {
+          id: 5,
+          date: '12 June 2019',
+          text: 'Why Do You Need Money',
+          url: 'https://reactnativecode.000webhostapp.com/images/flowers-background-butterflies-beautiful-87452.jpeg'
+       }
+     ],
       dataSource: [
         {
           title: 'Tips To Protect Hair From Falling',
@@ -30,6 +71,19 @@ export default class ChannelScreen extends Component {
     };
  
   }
+  componentDidMount() {
+
+    InterstitialAdManager.showAd("665254733991193_665318663984800")
+  .then(didClick => {
+    console.log('working')
+  })
+  .catch(error => {
+    console.log(error, 'rror')
+  });
+  }
+  _openDetail = (value) => {
+    this.props.navigation.navigate('RankingScreen', { data: value })
+  }
 
   componentWillMount() {
     this.setState({
@@ -43,6 +97,10 @@ export default class ChannelScreen extends Component {
   componentWillUnmount() {
     clearInterval(this.state.interval);
   }
+
+  space(){
+    return(<View style={{height: 50, width: 2, backgroundColor: 'black'}}/>)
+}
   render() {
 
     const images = [
@@ -86,48 +144,42 @@ export default class ChannelScreen extends Component {
           onPositionChanged={position => this.setState({ position })}
            />
 
+     <FlatList
+          data={this.state.names}
+          style={{flexDirection: 'column', marginLeft:10}}
+          numColumns={3}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) =>
+          <View  >
+         <TouchableOpacity onPress={() => this._openDetail(item)}>
+            <View style={styles.rowElement}>
+               <View style={styles.emptyWidth}></View>
+                <View style={styles.imageWidth}>
+                  <Image
+                  style={styles.image}
+                  source={{uri: item.url}}
+                />
+               </View>
+               </View>
            <View style={styles.rowElement}>
           <View style={styles.emptyWidth}></View>
            <View style={styles.imageWidth}>
-           <Image
-           style={styles.image}
-           source={{uri: 'https://reactnativecode.000webhostapp.com/images/dahlia-red-blossom-bloom-60597.jpeg'}}
-          />
+           <Text style={styles.textalignment2}>{item.date} </Text>
            </View>
-           <View style={styles.imageWidth}>
-           <Image
-           style={styles.image}
-           source={{uri: 'https://reactnativecode.000webhostapp.com/images/flower-impala-lily-floral-plant-65653.jpeg'}}
-          /></View>
-           <View style={styles.imageWidth}>
-           <Image
-           style={styles.image}
-          source={{uri: 'https://reactnativecode.000webhostapp.com/images/flowers-background-butterflies-beautiful-87452.jpeg'}}
-        /></View>
-             <View style={styles.emptyWidth}></View>
            </View>
-           <View style={styles.rowElement}>
+        
+          <View style={styles.rowElement}>
           <View style={styles.emptyWidth}></View>
            <View style={styles.imageWidth}>
-           <Text style={styles.textalignment2}>07 June 2019 </Text>
+           <Text style={styles.textalignment}>{item.text}</Text>
            </View>
-           <View style={styles.imageWidth}>
-           <Text style={styles.textalignment2}>15 June 2019 </Text></View>
-           <View style={styles.imageWidth}>
-           <Text style={styles.textalignment2}>21 June 2019 </Text></View>
-             <View style={styles.emptyWidth}></View>
            </View>
-           <View style={styles.rowElement}>
-          <View style={styles.emptyWidth}></View>
-           <View style={styles.imageWidth}>
-           <Text style={styles.textalignment}>How To Start A Business With 0 Investment</Text>
+           </TouchableOpacity>
            </View>
-           <View style={styles.imageWidth}>
-           <Text  style={styles.textalignment}>Tips For Getting Success In Network Marketing</Text></View>
-           <View style={styles.imageWidth}>
-           <Text  style={styles.textalignment}>Who Will Win ICC Cricket World Cup 2019</Text></View>
-             <View style={styles.emptyWidth}></View>
-           </View>
+          }
+          keyExtractor={item => item.email}
+        />
+           
            
           
            
@@ -151,7 +203,7 @@ const styles = StyleSheet.create({
     flexDirection:'row'    //Step 1
 },
 textalignment:{
-  marginTop:10,
+  marginTop:5,
   fontSize:12
 },
 textalignment2:{
@@ -167,8 +219,9 @@ emptyWidth : {
   width : '10%'
 },
 imageWidth : {
-  width:'30%'
+  width:80
 },
+
 image: {
   marginTop:20,
   width: 80, height: 70
