@@ -2211,6 +2211,12 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
+fbemitter@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/fbemitter/-/fbemitter-2.1.1.tgz#523e14fdaf5248805bb02f62efc33be703f51865"
+  dependencies:
+    fbjs "^0.8.4"
+
 fbjs-scripts@^0.8.1:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/fbjs-scripts/-/fbjs-scripts-0.8.3.tgz#b854de7a11e62a37f72dab9aaf4d9b53c4a03174"
@@ -2238,7 +2244,7 @@ fbjs@0.8.16:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
 
-fbjs@^0.8.0, fbjs@^0.8.14, fbjs@^0.8.16, fbjs@^0.8.9:
+fbjs@^0.8.0, fbjs@^0.8.14, fbjs@^0.8.16, fbjs@^0.8.4, fbjs@^0.8.9:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   dependencies:
@@ -4727,6 +4733,16 @@ react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-native-ads-facebook@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-ads-facebook/-/react-native-ads-facebook-0.2.0.tgz#73aec5cb82b57723650802987fbb3983b1b57d70"
+  dependencies:
+    fbemitter "^2.1.1"
+
+react-native-chartboost@0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/react-native-chartboost/-/react-native-chartboost-0.0.13.tgz#be24c4de8800b355b59c337cd78e8c44a82b61d1"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -4742,6 +4758,16 @@ react-native-drawer-layout@1.3.2:
   resolved "https://registry.yarnpkg.com/react-native-drawer-layout/-/react-native-drawer-layout-1.3.2.tgz#b9740d7663a1dc4f88a61b9c6d93d2d948ea426e"
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
+
+react-native-fbads@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-fbads/-/react-native-fbads-6.1.0.tgz#4d753f206604306293e48c38054ca4dbb52e8d6c"
+  dependencies:
+    fbemitter "^2.1.1"
+
+react-native-fbsdk@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.10.1.tgz#b3ed4237b1322956f2260c716d49c2ce08514741"
 
 react-native-image-slider@^2.0.3:
   version "2.0.3"
@@ -4766,6 +4792,10 @@ react-native-slideshow@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-native-slideshow/-/react-native-slideshow-1.0.1.tgz#1eac6bd5d1362aac52b8a2f33f3ebc1f88da9402"
 
+react-native-splash-screen@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-splash-screen/-/react-native-splash-screen-3.0.6.tgz#c0bbf2c8ae40a313c4c7044f55e569414ff68332"
+
 react-native-tab-view@^0.0.77:
   version "0.0.77"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.77.tgz#11ceb8e7c23100d07e628dc151b57797524d00d4"
@@ -4777,6 +4807,10 @@ react-native-tab-view@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.0.2.tgz#66e0bc6d38a227ed2b212e3a256b7902f6ce02ed"
   dependencies:
     prop-types "^15.6.1"
+
+react-native-unity-ads@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-unity-ads/-/react-native-unity-ads-1.0.3.tgz#c4cf094ae79fb88ae5d6885f85684f2b9a3f4851"
 
 react-native-vector-icons@^5.0.0:
   version "5.0.0"

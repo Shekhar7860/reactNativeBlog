@@ -4,8 +4,9 @@ import {  DrawerActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Slideshow from 'react-native-slideshow';
 import React, { Component } from 'react';
-import { InterstitialAdManager } from 'react-native-fbads';
-
+import SplashScreen from 'react-native-splash-screen';
+import { InterstitialAdManager, NativeAdsManager,  BannerView, AdSettings  } from 'react-native-ads-facebook';
+const adsManager = new NativeAdsManager("665254733991193_665256927324307", 0);
 export default class ChannelScreen extends Component {
   
 
@@ -72,7 +73,8 @@ export default class ChannelScreen extends Component {
  
   }
   componentDidMount() {
-
+    SplashScreen.hide()
+    AdSettings.addTestDevice(AdSettings.currentDeviceHash);
     InterstitialAdManager.showAd("665254733991193_665318663984800")
   .then(didClick => {
     console.log('working')
@@ -143,7 +145,12 @@ export default class ChannelScreen extends Component {
           position={this.state.position}
           onPositionChanged={position => this.setState({ position })}
            />
-
+<BannerView
+            placementId={"665254733991193_665876810595652"}
+            type="large"
+            onPress={() => console.log('click')}
+            onError={err => console.log('myyyyerror', err)}
+          />
      <FlatList
           data={this.state.names}
           style={{flexDirection: 'column', marginLeft:10}}
@@ -177,7 +184,7 @@ export default class ChannelScreen extends Component {
            </TouchableOpacity>
            </View>
           }
-          keyExtractor={item => item.email}
+          keyExtractor={item => item.id}
         />
            
            
@@ -188,7 +195,7 @@ export default class ChannelScreen extends Component {
           
            
 
-
+ 
                </View>
     );
   }

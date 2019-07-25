@@ -7,7 +7,7 @@
     <item
         android:width="400dp"
         android:height="400dp"
-        android:drawable="@mipmap/icon"
+        android:drawable="@mipmap/ic_launcher"
        android:gravity="center"
          />
 </layer-list>
