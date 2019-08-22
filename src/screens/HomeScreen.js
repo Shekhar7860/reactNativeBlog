@@ -5,8 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Slideshow from 'react-native-slideshow';
 import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import { InterstitialAdManager, NativeAdsManager,  BannerView, AdSettings  } from 'react-native-ads-facebook';
-const adsManager = new NativeAdsManager("665254733991193_665256927324307", 0);
+
 export default class ChannelScreen extends Component {
   
 
@@ -73,15 +72,73 @@ export default class ChannelScreen extends Component {
  
   }
   componentDidMount() {
-    SplashScreen.hide()
-    AdSettings.addTestDevice(AdSettings.currentDeviceHash);
-    InterstitialAdManager.showAd("665254733991193_665318663984800")
-  .then(didClick => {
-    console.log('working')
-  })
-  .catch(error => {
-    console.log(error, 'rror')
-  });
+   var s = 'bhupinder';
+   d = [];
+   for (var i = s.length-1; i>=0; i-- ){
+     console.log(s[i], 's');
+     d.push(s[i])
+
+   }
+   console.log('d, d', d);
+   e = d.join("");
+   var myarray = ["ankit", "virat", "karan", "akbar", "sameer"];
+  var t = myarray.splice(1);
+  console.log('arrayindex1',s.length)
+  for (j = 0; j<=myarray.length; j++){
+    console.log('arrayindex1', myarray.length)
+    if(myarray[j] == 'ankit'){
+      console.log('arrayindex', j)
+      myarray.splice(j, 1)
+    }
+  }
+  console.log('array', 'aaa')
+  console.log(myarray, 'array')
+  console.log(t, 't')
+   console.log(e, 'e');
+   var test = [2, 6, 3, 5, 9, 7, 4];
+   var d = "";
+   var newArray = [];
+   for(var i = 0 ; i < test.length;i++)
+   {
+   for (j=i+1; j<=test.length; j++){
+    console.log('newArray', test[j]);
+     if(test[j] > test[j+1])
+     {
+      console.log('working')
+       d = test[j+1];
+       test[j+1] = test[j];
+       test[j] = d
+      
+      
+     }
+    
+   }
+  }
+   console.log('newArray',  test)
+   console.log('length', test.length)
+  // console.log(b.join(""), 'b');
+  // console.log(d.join(""))
+    SplashScreen.hide();
+    console.log(this, 'this')
+    var car = function (model) {
+     
+   this.model = model;
+    this.price = '5000'
+    }
+ car.prototype.price = 10000;
+  var honda = new car ('honda');
+  var maruti = new car ('maruti');
+  console.log('honda', honda);
+  console.log('maruti', maruti);
+  
+   testHello = function (name ){
+     var checktest = 'hi' + name ; 
+     var say = function () {
+       console.log(checktest)
+     }
+     say();
+   }
+   testHello('bhupinder');
   }
   _openDetail = (value) => {
     this.props.navigation.navigate('RankingScreen', { data: value })
@@ -145,12 +202,12 @@ export default class ChannelScreen extends Component {
           position={this.state.position}
           onPositionChanged={position => this.setState({ position })}
            />
-<BannerView
+{/* <BannerView
             placementId={"665254733991193_665876810595652"}
             type="large"
             onPress={() => console.log('click')}
             onError={err => console.log('myyyyerror', err)}
-          />
+          /> */}
      <FlatList
           data={this.state.names}
           style={{flexDirection: 'column', marginLeft:10}}

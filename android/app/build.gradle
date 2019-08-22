@@ -139,8 +139,6 @@ android {
 
 dependencies {
     compile project(':react-native-splash-screen')
-    compile project(':react-native-fbsdk')
-    compile project(':react-native-ads-facebook')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
      compile 'com.facebook.android:audience-network-sdk:5.+'

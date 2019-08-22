@@ -10,15 +10,12 @@
     "prop-types": "^15.7.2",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-ads-facebook": "^0.2.0",
-    "react-native-chartboost": "0.0.13",
     "react-native-fbads": "^6.1.0",
-    "react-native-fbsdk": "^0.10.1",
     "react-native-image-slider": "^2.0.3",
     "react-native-slideshow": "^1.0.1",
-    "react-native-splash-screen": "3.0.6",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-unity-ads": "^1.0.3",
-    "react-native-vector-icons": "^5.0.0",
+    "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^2.11.2"
   },
   "devDependencies": {
